@@ -1,7 +1,5 @@
 import React from "react";
 import {
-  Box,
-  Grid,
   Card,
   Chip,
   Avatar,

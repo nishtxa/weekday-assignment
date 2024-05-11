@@ -33,7 +33,6 @@ export default function JobListing() {
   const [filteredData, setFilteredData] = useState([]);
   const [offset, setOffset] = useState(0);
   const [hasMore, setHasMore] = useState(true);
-  const [totalCount, setTotalCount] = useState(0);
   const roles = ['ios', 'android', 'backend', 'frontend'];
     const experienceOptions = [1,2,3,4,5,6,7,8,9,10];
     // const numberOfEmployees = ['1-10', '11-20', '21-50', '51-100', '100+']
@@ -81,7 +80,6 @@ export default function JobListing() {
         const res = await axios.post(url);
         console.log(res);
         setOriginalData(prevData => [...prevData, ...res.data.jdList]); 
-        setTotalCount(res.data.totalCount);
         setOffset(offset+10)
         if (currentOffset + 10 >= res.data.totalCount) {
           setHasMore(false); 
